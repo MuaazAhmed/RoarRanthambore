@@ -1,0 +1,65 @@
+{
+  "info": {
+    "name": "Ranthambhore Safari API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Booking",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "url": {"raw": "http://localhost:8080/bookings", "protocol": "http", "host": ["localhost"], "port": ["8080"], "path": ["bookings"]},
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"date\": \"2026-03-15\",\n  \"zone\": \"Zone 1\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Get All Bookings",
+      "request": {
+        "method": "GET",
+        "url": {"raw": "http://localhost:8080/bookings", "protocol": "http", "host": ["localhost"], "port": ["8080"], "path": ["bookings"]}
+      }
+    },
+    {
+      "name": "Get Booking by ID",
+      "request": {
+        "method": "GET",
+        "url": {"raw": "http://localhost:8080/bookings/1", "protocol": "http", "host": ["localhost"], "port": ["8080"], "path": ["bookings", "1"]}
+      }
+    },
+    {
+      "name": "Update Booking",
+      "request": {
+        "method": "PUT",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "url": {"raw": "http://localhost:8080/bookings/1", "protocol": "http", "host": ["localhost"], "port": ["8080"], "path": ["bookings", "1"]},
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Jane Doe\",\n  \"email\": \"jane@example.com\",\n  \"date\": \"2026-03-20\",\n  \"zone\": \"Zone 2\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Delete Booking",
+      "request": {
+        "method": "DELETE",
+        "url": {"raw": "http://localhost:8080/bookings/1", "protocol": "http", "host": ["localhost"], "port": ["8080"], "path": ["bookings", "1"]}
+      }
+    },
+    {
+      "name": "Admin Login",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "url": {"raw": "http://localhost:8080/admin/login", "protocol": "http", "host": ["localhost"], "port": ["8080"], "path": ["admin", "login"]},
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\"\n}"
+        }
+      }
+    }
+  ]
+}
