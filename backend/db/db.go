@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"os"
 
 	"github.com/jackc/pgx/v4/pgxpool"
 )
@@ -11,7 +12,10 @@ import (
 var DB *pgxpool.Pool
 
 func InitDB() {
-	connString := "postgres://postgres:1397@localhost:5432/ranthambhore_db?sslmode=disable"
+	connString := os.Getenv("DATABASE_URL")
+	if connString == "" {
+		connString = "postgres://postgres:1397@localhost:5432/ranthambhore_db?sslmode=disable"
+	}
 	config, err := pgxpool.ParseConfig(connString)
 	if err != nil {
 		log.Fatal("Unable to parse config:", err)

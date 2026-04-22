@@ -2,12 +2,12 @@ import React from 'react';
 
 const Gallery = () => {
   const images = [
-    { id: 1, src: "static/gallery/gallery1.jpg", title: "Royal Bengal Tiger" },
-    { id: 2, src: "static/gallery/gallery2.jpg", title: "Safari Vehicle" },
-    { id: 3, src: "static/gallery/gallery3.jpg", title: "Indian Leopard" },
-    { id: 4, src: "static/gallery/gallery4.jpg", title: "Sambar Deer" },
-    { id: 5, src: "static/gallery/gallery5.jpg", title: "Serene Lake Padam Talab" },
-    { id: 6, src: "static/gallery/gallery6.jpg", title: "Tiger Resting" },
+    { id: 1, src: "/static/gallery/gallery1.jpg", title: "Royal Bengal Tiger" },
+    { id: 2, src: "/static/gallery/gallery2.jpg", title: "Safari Vehicle" },
+    { id: 3, src: "/static/gallery/gallery3.jpg", title: "Indian Leopard" },
+    { id: 4, src: "/static/gallery/gallery4.jpg", title: "Sambar Deer" },
+    { id: 5, src: "/static/gallery/gallery5.jpg", title: "Serene Lake Padam Talab" },
+    { id: 6, src: "/static/gallery/gallery6.jpg", title: "Tiger Resting" },
   ];
 
   return (

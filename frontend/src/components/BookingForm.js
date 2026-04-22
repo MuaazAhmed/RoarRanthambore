@@ -16,7 +16,7 @@ const BookingForm = () => {
         ...formData,
         num_people: parseInt(formData.num_people, 10) || 1
       };
-      await axios.post('http://localhost:8080/bookings', payload);
+      await axios.post(`${process.env.REACT_APP_API_URL || 'http://localhost:8080'}/api/bookings`, payload);
       setStatus('success');
 
       // Pseudo Razorpay logic

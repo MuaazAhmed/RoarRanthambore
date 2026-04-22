@@ -1,0 +1,36 @@
+services:
+  postgres:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "6665:5432"        # exposes to your local machine for pgAdmin / psql
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      # - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro   # auto-runs on first start
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  ranthambhore:
+    image: ranthambhore-app:latest
+    container_name: ranthambhore_app
+    build: .
+    restart: unless-stopped
+    ports:
+      - "6666:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./.env:/app/.env:ro
+    env_file:
+      - .env
+
+volumes:
+  postgres_data:

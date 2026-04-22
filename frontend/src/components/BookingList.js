@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const API = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+
 const BookingList = () => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -9,7 +11,7 @@ const BookingList = () => {
     const fetchBookings = async () => {
       try {
         const token = localStorage.getItem('adminToken');
-        const res = await axios.get('http://localhost:8080/bookings', { headers: { Authorization: `Bearer ${token}` } });
+        const res = await axios.get(`${API}/api/bookings`, { headers: { Authorization: `Bearer ${token}` } });
         setBookings(res.data || []);
       } catch (err) {
         console.error("Failed to fetch bookings:", err);
@@ -24,7 +26,7 @@ const BookingList = () => {
     if (!window.confirm("Are you sure you want to delete this booking?")) return;
     try {
       const token = localStorage.getItem('adminToken');
-      await axios.delete(`http://localhost:8080/bookings/${id}`, { headers: { Authorization: `Bearer ${token}` } });
+      await axios.delete(`${API}/api/bookings/${id}`, { headers: { Authorization: `Bearer ${token}` } });
       setBookings(bookings.filter(b => b.id !== id));
     } catch (err) {
       alert("Failed to delete booking.");
@@ -37,7 +39,7 @@ const BookingList = () => {
       const bookingToUpdate = bookings.find(b => b.id === id);
       const updatedBooking = { ...bookingToUpdate, status: newStatus };
 
-      await axios.put(`http://localhost:8080/bookings/${id}`, updatedBooking, {
+      await axios.put(`${API}/api/bookings/${id}`, updatedBooking, {
         headers: { Authorization: `Bearer ${token}` }
       });
 

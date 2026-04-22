@@ -63,6 +63,54 @@ const Booking = () => {
           </div>
         </div>
       </section>
+      {/* Pricing Summary */}
+      <section className="py-12 bg-white border-b border-gray-100">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-extrabold text-gray-900">Safari Rate List</h2>
+            <p className="text-sm text-gray-500 mt-1">Official rates for Gypsy and Canter safaris in Ranthambhore</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-gray-50 rounded-3xl p-6 border border-gray-100">
+              <h3 className="text-xl font-bold text-green-800 mb-4 flex items-center gap-2">🚙 Gypsy (6 Seater)</h3>
+              <div className="space-y-3">
+                <div className="flex justify-between border-b pb-2"><span className="text-sm text-gray-600">Indian (Shared)</span><span className="font-bold">₹1,900</span></div>
+                <div className="flex justify-between border-b pb-2"><span className="text-sm text-gray-600">Indian (Full)</span><span className="font-bold">₹11,000</span></div>
+                <div className="flex justify-between border-b pb-2"><span className="text-sm text-gray-600">Foreigner (Shared)</span><span className="font-bold">₹4,000</span></div>
+                <div className="flex justify-between border-b pb-2"><span className="text-sm text-gray-600">Foreigner (Full)</span><span className="font-bold">₹24,000</span></div>
+              </div>
+            </div>
+            <div className="bg-gray-50 rounded-3xl p-6 border border-gray-100">
+              <h3 className="text-xl font-bold text-amber-800 mb-4 flex items-center gap-2">🚌 Canter (20 Seater)</h3>
+              <div className="space-y-3">
+                <div className="flex justify-between border-b pb-2"><span className="text-sm text-gray-600">Indian (Per Seat)</span><span className="font-bold">₹1,300</span></div>
+                <div className="flex justify-between border-b pb-2"><span className="text-sm text-gray-600">Foreigner (Per Seat)</span><span className="font-bold">₹3,000</span></div>
+                <div className="flex justify-between border-b pb-2"><span className="text-sm text-gray-600">Indian (Tatkal)</span><span className="font-bold">₹2,500</span></div>
+                <div className="flex justify-between border-b pb-2"><span className="text-sm text-gray-600">Foreigner (Tatkal)</span><span className="font-bold">₹8,000</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* Safari Tips */}
+      <section className="py-16 bg-green-950">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-2xl font-extrabold text-white mb-2 text-center">Expert Safari Tips</h2>
+          <p className="text-green-300/70 text-center mb-10 text-sm">From seasoned naturalists who've spent years in the jungle</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {TIPS.map((t, i) => (
+              <div key={i} className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1">
+                <div className="text-3xl mb-3">{t.icon}</div>
+                <h3 className="font-bold text-white mb-2">{t.title}</h3>
+                <p className="text-green-100/60 text-sm leading-relaxed">{t.tip}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Booking Form */}
       <section className="flex-grow py-16 bg-gray-50">
         <div className="flex items-start justify-center px-4">
@@ -86,24 +134,6 @@ const Booking = () => {
           </div>
         </div>
       </section>
-      {/* Safari Tips */}
-      <section className="py-16 bg-green-950">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-2xl font-extrabold text-white mb-2 text-center">Expert Safari Tips</h2>
-          <p className="text-green-300/70 text-center mb-10 text-sm">From seasoned naturalists who've spent years in the jungle</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {TIPS.map((t, i) => (
-              <div key={i} className="bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1">
-                <div className="text-3xl mb-3">{t.icon}</div>
-                <h3 className="font-bold text-white mb-2">{t.title}</h3>
-                <p className="text-green-100/60 text-sm leading-relaxed">{t.tip}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
 
       {/* Park Rules */}
       <section className="py-16 bg-white border-t border-gray-100">

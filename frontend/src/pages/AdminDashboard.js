@@ -4,6 +4,32 @@ import { useNavigate } from 'react-router-dom';
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
+  const [stats, setStats] = React.useState({ total: 0, pending: 0 });
+
+  React.useEffect(() => {
+    const token = localStorage.getItem('adminToken');
+    if (!token) {
+      navigate('/admin/login');
+      return;
+    }
+
+    const fetchStats = async () => {
+      try {
+        const API = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+        const res = await axios.get(`${API}/api/bookings`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        const bookings = res.data || [];
+        setStats({
+          total: bookings.length,
+          pending: bookings.filter(b => b.status === 'Fresh' || !b.status).length
+        });
+      } catch (err) {
+        console.error("Failed to fetch stats:", err);
+      }
+    };
+    fetchStats();
+  }, [navigate]);
 
   const handleLogout = () => {
     localStorage.removeItem('adminToken');
@@ -41,17 +67,17 @@ const AdminDashboard = () => {
             <p className="mt-1 text-sm text-gray-500">Manage safari bookings, approve requests, and oversee operations.</p>
           </div>
 
-          {/* Statistics Cards Placeholder */}
+          {/* Statistics Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex flex-col items-center justify-center relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-green-50 rounded-bl-full -z-10 opacity-50"></div>
               <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Total Bookings</p>
-              <p className="text-4xl font-bold text-gray-900 mt-2">Active</p>
+              <p className="text-4xl font-bold text-gray-900 mt-2">{stats.total}</p>
             </div>
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex flex-col items-center justify-center relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-50 rounded-bl-full -z-10 opacity-50"></div>
               <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Pending Review</p>
-              <p className="text-4xl font-bold text-gray-900 mt-2">Check Below</p>
+              <p className="text-4xl font-bold text-amber-600 mt-2">{stats.pending}</p>
             </div>
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex flex-col items-center justify-center relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -z-10 opacity-50"></div>
