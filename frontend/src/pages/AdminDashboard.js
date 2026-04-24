@@ -1,5 +1,6 @@
 import React from 'react';
 import BookingList from '../components/BookingList';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const AdminDashboard = () => {
@@ -15,7 +16,7 @@ const AdminDashboard = () => {
 
     const fetchStats = async () => {
       try {
-        const API = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+        const API = process.env.REACT_APP_API_URL || '';
         const res = await axios.get(`${API}/api/bookings`, {
           headers: { Authorization: `Bearer ${token}` }
         });
