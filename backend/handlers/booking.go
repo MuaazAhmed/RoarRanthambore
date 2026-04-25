@@ -110,7 +110,7 @@ func CreateBooking(c *gin.Context) {
 
 func GetBookings(c *gin.Context) {
 	// Add JWT auth middleware in prod
-	rows, err := db.DB.Query(context.Background(), "SELECT id, name, email, TO_CHAR(date, 'YYYY-MM-DD'), zone, whatsapp, nationality, shift, vehicle, num_people, status FROM bookings ORDER BY id DESC")
+	rows, err := db.DB.Query(context.Background(), "SELECT id, name, email, date, zone, whatsapp, nationality, shift, vehicle, num_people, status FROM bookings ORDER BY id DESC")
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
@@ -135,7 +135,7 @@ func GetBookings(c *gin.Context) {
 func GetBooking(c *gin.Context) {
 	id, _ := strconv.Atoi(c.Param("id"))
 	var b models.Booking
-	err := db.DB.QueryRow(context.Background(), "SELECT id, name, email, TO_CHAR(date, 'YYYY-MM-DD'), zone, whatsapp, nationality, shift, vehicle, num_people, status FROM bookings WHERE id=$1", id).Scan(&b.ID, &b.Name, &b.Email, &b.Date, &b.Zone, &b.Whatsapp, &b.Nationality, &b.Shift, &b.Vehicle, &b.NumPeople, &b.Status)
+	err := db.DB.QueryRow(context.Background(), "SELECT id, name, email, date, zone, whatsapp, nationality, shift, vehicle, num_people, status FROM bookings WHERE id=$1", id).Scan(&b.ID, &b.Name, &b.Email, &b.Date, &b.Zone, &b.Whatsapp, &b.Nationality, &b.Shift, &b.Vehicle, &b.NumPeople, &b.Status)
 	if err != nil {
 		println("Scan error in GetBooking:", err.Error())
 		c.JSON(http.StatusNotFound, gin.H{"error": "Not found or scan error: " + err.Error()})
