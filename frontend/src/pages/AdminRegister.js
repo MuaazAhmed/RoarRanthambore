@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 
-const API = process.env.REACT_APP_API_URL || '';
+const API = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:8080' : '';
 
 const AdminRegister = () => {
   const [form, setForm] = useState({ username: '', password: '', code: '' });

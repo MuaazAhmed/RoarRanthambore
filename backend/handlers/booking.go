@@ -67,17 +67,6 @@ func AdminRegister(c *gin.Context) {
 		return
 	}
 
-	// Limit admins to 5
-	var count int
-	err := db.DB.QueryRow(context.Background(), "SELECT COUNT(*) FROM admins").Scan(&count)
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "DB error"})
-		return
-	}
-	if count >= 5 {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Admin limit reached"})
-		return
-	}
 
 	hash, err := bcrypt.GenerateFromPassword([]byte(req.Password), bcrypt.DefaultCost)
 	if err != nil {

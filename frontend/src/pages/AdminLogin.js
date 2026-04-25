@@ -10,8 +10,9 @@ const AdminLogin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const API = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:8080' : '';
     try {
-      const res = await axios.post(`${process.env.REACT_APP_API_URL || ''}/api/admin/login`, creds);
+      const res = await axios.post(`${API}/api/admin/login`, creds);
       localStorage.setItem('adminToken', res.data.token);
       navigate('/admin/dashboard');
     } catch (error) {
