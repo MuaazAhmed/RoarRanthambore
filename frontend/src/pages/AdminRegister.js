@@ -10,6 +10,9 @@ const AdminRegister = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+  const [showPassword, setShowPassword] = useState(false);
+  const [showCode, setShowCode] = useState(false);
+
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
@@ -64,28 +67,46 @@ const AdminRegister = () => {
 
             <div className="space-y-1">
               <label className="text-sm font-semibold text-green-100 block pl-1">Password</label>
-              <input
-                name="password"
-                type="password"
-                placeholder="Choose a strong password"
-                onChange={handleChange}
-                value={form.password}
-                className="w-full px-5 py-3 rounded-xl bg-white/20 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-green-400 focus:bg-white/30 transition-all"
-                required
-              />
+              <div className="relative">
+                <input
+                  name="password"
+                  type={showPassword ? 'text' : 'password'}
+                  placeholder="Choose a strong password"
+                  onChange={handleChange}
+                  value={form.password}
+                  className="w-full px-5 py-3 pr-12 rounded-xl bg-white/20 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-green-400 focus:bg-white/30 transition-all"
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors focus:outline-none"
+                >
+                  {showPassword ? '🙈' : '👁️'}
+                </button>
+              </div>
             </div>
 
             <div className="space-y-1">
               <label className="text-sm font-semibold text-green-100 block pl-1">Registration Code</label>
-              <input
-                name="code"
-                type="password"
-                placeholder="Enter secret registration code"
-                onChange={handleChange}
-                value={form.code}
-                className="w-full px-5 py-3 rounded-xl bg-white/20 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-green-400 focus:bg-white/30 transition-all"
-                required
-              />
+              <div className="relative">
+                <input
+                  name="code"
+                  type={showCode ? 'text' : 'password'}
+                  placeholder="Enter secret registration code"
+                  onChange={handleChange}
+                  value={form.code}
+                  className="w-full px-5 py-3 pr-12 rounded-xl bg-white/20 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-green-400 focus:bg-white/30 transition-all"
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowCode(!showCode)}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors focus:outline-none"
+                >
+                  {showCode ? '🙈' : '👁️'}
+                </button>
+              </div>
               <p className="text-xs text-green-300/60 pl-1 mt-1">Default code: <span className="font-mono font-bold text-green-300">letmein</span></p>
             </div>
 

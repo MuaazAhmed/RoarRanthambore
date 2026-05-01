@@ -100,23 +100,16 @@ const BookingForm = () => {
           />
         </div>
 
-        <div className="space-y-1">
-          <label className="text-sm font-semibold text-gray-700 block pl-1">Preferred Zone</label>
-          <select
-            name="zone"
-            value={formData.zone}
-            onChange={handleChange}
-            className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-500 focus:bg-white transition-all shadow-sm"
-            required
-          >
-            <option value="" disabled>Select Safari Zone</option>
-            <option value="Zone 1">Zone 1 - Singhdwar</option>
-            <option value="Zone 2">Zone 2 - Lahpur</option>
-            <option value="Zone 3">Zone 3 - Padam Talab</option>
-            <option value="Zone 4">Zone 4 - Malik Talab</option>
-            <option value="Zone 5">Zone 5 - Kachida</option>
-            <option value="Zone 6">Zone 6 - Kundal</option>
-          </select>
+
+        <div className="md:col-span-2 space-y-1">
+          <label className="text-sm font-semibold text-gray-700 block pl-1">Safari Zone</label>
+          <div className="w-full px-4 py-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 text-sm flex items-start gap-2">
+            <span className="text-lg mt-0.5">🗺️</span>
+            <div>
+              <p className="font-semibold">Zone assigned by Forest Authorities</p>
+              <p className="text-amber-700 mt-0.5">Ranthambhore has 10 zones (Zone 1–10). Your zone will be allocated by the forest department at the time of booking confirmation.</p>
+            </div>
+          </div>
         </div>
 
         <div className="space-y-1">
@@ -173,6 +166,7 @@ const BookingForm = () => {
             <option value="" disabled>Select Vehicle</option>
             <option value="Shared Gypsy">Shared Gypsy (6 Seater)</option>
             <option value="Full Gypsy">Full Gypsy (Exclusive)</option>
+            <option value="Tatkal Gypsy">Tatkal Gypsy (Priority)</option>
             <option value="Shared Canter">Shared Canter (20 Seater)</option>
           </select>
         </div>

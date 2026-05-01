@@ -13,8 +13,8 @@ const PRICING = {
   canter: {
     title: 'Canter Safari (20-Seater)',
     icon: '🚌',
-    indian: { shared: '₹1,300/person', tatkal: '₹2,500/person' },
-    foreigner: { shared: '₹3,000/person', tatkal: '₹8,000/person' },
+    indian: { shared: '₹1,300/person' },
+    foreigner: { shared: '₹3,000/person' },
     timing: 'Morning 6:30 AM – 10:00 AM  |  Evening 2:30 PM – 6:00 PM',
   },
 };
@@ -304,16 +304,14 @@ const Home = () => {
                 <div className="space-y-4">
                   <div>
                     <p className="text-xs font-bold text-green-700 uppercase tracking-widest mb-2">🇮🇳 Indian</p>
-                    <div className="grid grid-cols-2 gap-2 text-center">
+                    <div className="grid grid-cols-1 gap-2 text-center">
                       <div className="bg-green-50 rounded-xl p-3"><p className="text-xs text-gray-500">Per Person</p><p className="font-bold text-green-800">₹1,300</p></div>
-                      <div className="bg-amber-50 rounded-xl p-3"><p className="text-xs text-gray-500">Tatkal/Person</p><p className="font-bold text-amber-700">₹2,500</p></div>
                     </div>
                   </div>
                   <div>
                     <p className="text-xs font-bold text-blue-700 uppercase tracking-widest mb-2">🌍 Foreigner</p>
-                    <div className="grid grid-cols-2 gap-2 text-center">
+                    <div className="grid grid-cols-1 gap-2 text-center">
                       <div className="bg-blue-50 rounded-xl p-3"><p className="text-xs text-gray-500">Per Person</p><p className="font-bold text-blue-800">₹3,000</p></div>
-                      <div className="bg-amber-50 rounded-xl p-3"><p className="text-xs text-gray-500">Tatkal/Person</p><p className="font-bold text-amber-700">₹8,000</p></div>
                     </div>
                   </div>
                   <div className="bg-gray-50 rounded-xl p-3 text-sm text-gray-600">

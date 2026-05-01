@@ -12,7 +12,7 @@ const BookingList = () => {
       try {
         const token = localStorage.getItem('adminToken');
         const res = await axios.get(`${API}/api/bookings`, { headers: { Authorization: `Bearer ${token}` } });
-        setBookings(res.data || []);
+        setBookings(Array.isArray(res.data) ? res.data : []);
       } catch (err) {
         console.error("Failed to fetch bookings:", err);
       } finally {

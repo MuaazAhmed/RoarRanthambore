@@ -85,8 +85,8 @@ const Booking = () => {
               <div className="space-y-3">
                 <div className="flex justify-between border-b pb-2"><span className="text-sm text-gray-600">Indian (Per Seat)</span><span className="font-bold">₹1,300</span></div>
                 <div className="flex justify-between border-b pb-2"><span className="text-sm text-gray-600">Foreigner (Per Seat)</span><span className="font-bold">₹3,000</span></div>
-                <div className="flex justify-between border-b pb-2"><span className="text-sm text-gray-600">Indian (Tatkal)</span><span className="font-bold">₹2,500</span></div>
-                <div className="flex justify-between border-b pb-2"><span className="text-sm text-gray-600">Foreigner (Tatkal)</span><span className="font-bold">₹8,000</span></div>
+                {/* <div className="flex justify-between border-b pb-2"><span className="text-sm text-gray-600">Indian (Tatkal)</span><span className="font-bold">₹2,500</span></div> */}
+                {/* <div className="flex justify-between border-b pb-2"><span className="text-sm text-gray-600">Foreigner (Tatkal)</span><span className="font-bold">₹8,000</span></div> */}
               </div>
             </div>
           </div>

@@ -6,6 +6,8 @@ const AdminLogin = () => {
   const [creds, setCreds] = useState({ username: '', password: '' });
   const navigate = useNavigate();
 
+  const [showPassword, setShowPassword] = useState(false);
+
   const handleChange = (e) => setCreds({ ...creds, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
@@ -32,37 +34,46 @@ const AdminLogin = () => {
           <h2 className="text-4xl font-extrabold text-white mb-2 tracking-tight">Admin Portal</h2>
           <p className="text-green-100 font-medium tracking-wide">Secure access to Ranthambhore Safari</p>
         </div>
-        
+
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-1">
             <label className="text-sm font-semibold text-green-50 block pl-1">Username</label>
-            <input 
-              name="username" 
-              placeholder="Enter your username" 
-              onChange={handleChange} 
-              className="w-full px-5 py-3 rounded-xl bg-white/20 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-green-400 focus:bg-white/30 transition-all duration-300 backdrop-blur-sm" 
-              required 
+            <input
+              name="username"
+              placeholder="Enter your username"
+              onChange={handleChange}
+              className="w-full px-5 py-3 rounded-xl bg-white/20 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-green-400 focus:bg-white/30 transition-all duration-300 backdrop-blur-sm"
+              required
             />
           </div>
           <div className="space-y-1">
             <label className="text-sm font-semibold text-green-50 block pl-1">Password</label>
-            <input 
-              name="password" 
-              type="password" 
-              placeholder="Enter your password" 
-              onChange={handleChange} 
-              className="w-full px-5 py-3 rounded-xl bg-white/20 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-green-400 focus:bg-white/30 transition-all duration-300 backdrop-blur-sm" 
-              required 
-            />
+            <div className="relative">
+              <input
+                name="password"
+                type={showPassword ? 'text' : 'password'}
+                placeholder="Enter your password"
+                onChange={handleChange}
+                className="w-full px-5 py-3 pr-12 rounded-xl bg-white/20 border border-white/10 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-green-400 focus:bg-white/30 transition-all duration-300 backdrop-blur-sm"
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors focus:outline-none"
+              >
+                {showPassword ? '🙈' : '👁️'}
+              </button>
+            </div>
           </div>
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className="w-full py-4 mt-4 bg-gradient-to-r from-green-400 to-emerald-600 hover:from-green-500 hover:to-emerald-700 text-white font-bold rounded-xl shadow-lg transform transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-green-900"
           >
             Authenticate
           </button>
         </form>
-        
+
         <div className="mt-6 text-center">
           <p className="text-white/60 text-sm">Authorized personnel only.</p>
         </div>

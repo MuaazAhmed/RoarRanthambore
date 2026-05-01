@@ -29,7 +29,10 @@ const Navigation = () => {
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="text-2xl font-extrabold text-green-800 tracking-tighter flex items-center gap-2">
-              <span className="text-3xl">🦏</span>
+              {/* <span className="text-3xl">🦏</span> */}
+              {
+                <img src="/static/logos/logo.png" alt="Ranthambhore Safari Logo" className="h-28 w-auto" />
+              }
               Ranthambhore
             </Link>
           </div>

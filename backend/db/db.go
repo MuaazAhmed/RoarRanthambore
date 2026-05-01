@@ -75,4 +75,19 @@ func InitDB() {
 	if err != nil {
 		log.Println("Note: Could not cleanup statuses:", err)
 	}
+
+	// Ensure contact_messages table exists
+	_, err = DB.Exec(context.Background(), `
+		CREATE TABLE IF NOT EXISTS contact_messages (
+			id SERIAL PRIMARY KEY,
+			name TEXT NOT NULL,
+			email TEXT NOT NULL,
+			message TEXT NOT NULL,
+			is_read BOOLEAN DEFAULT FALSE,
+			created_at TIMESTAMPTZ DEFAULT NOW()
+		);
+	`)
+	if err != nil {
+		log.Fatal("Failed to ensure contact_messages table:", err)
+	}
 }

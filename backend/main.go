@@ -38,6 +38,12 @@ func main() {
 	router.POST("/api/admin/login", handlers.AdminLogin)
 	router.POST("/api/admin/register", handlers.AdminRegister)
 
+	// Contact message routes
+	router.POST("/api/contact", handlers.CreateContactMessage)
+	router.GET("/api/contact", handlers.GetContactMessages)
+	router.PUT("/api/contact/:id/read", handlers.MarkContactMessageRead)
+	router.DELETE("/api/contact/:id", handlers.DeleteContactMessage)
+
 	// Serve React static files
 	router.Static("/static", "./build/static")
 	router.StaticFile("/favicon.ico", "./build/favicon.ico")
