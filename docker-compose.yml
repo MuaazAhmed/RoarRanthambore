@@ -23,12 +23,18 @@ services:
     build: .
     restart: unless-stopped
     ports:
-      - "6666:8080"
+      - "3000:8080"
     depends_on:
       postgres:
         condition: service_healthy
-    volumes:
-      - ./.env:/app/.env:ro
+    environment:
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_NAME=${DB_NAME}
+      - DATABASE_URL=postgres://${DB_USER}:${DB_PASSWORD}@postgres:5432/${DB_NAME}?sslmode=disable
+      - FRONTEND_URL=${FRONTEND_URL}
     env_file:
       - .env
 

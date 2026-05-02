@@ -14,7 +14,20 @@ var DB *pgxpool.Pool
 func InitDB() {
 	connString := os.Getenv("DATABASE_URL")
 	if connString == "" {
-		connString = "postgres://postgres:1397@localhost:5432/ranthambhore_db?sslmode=disable"
+		dbUser := os.Getenv("DB_USER")
+		dbPass := os.Getenv("DB_PASSWORD")
+		dbHost := os.Getenv("DB_HOST")
+		dbPort := os.Getenv("DB_PORT")
+		dbName := os.Getenv("DB_NAME")
+
+		if dbUser != "" && dbHost != "" {
+			if dbPort == "" {
+				dbPort = "5432"
+			}
+			connString = fmt.Sprintf("postgres://%s:%s@%s:%s/%s?sslmode=disable", dbUser, dbPass, dbHost, dbPort, dbName)
+		} else {
+			connString = "postgres://postgres:1397@localhost:5432/ranthambhore_db?sslmode=disable"
+		}
 	}
 	config, err := pgxpool.ParseConfig(connString)
 	if err != nil {
