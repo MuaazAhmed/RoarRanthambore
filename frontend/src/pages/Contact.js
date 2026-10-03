@@ -94,11 +94,10 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className={`w-full py-4 text-white font-bold rounded-xl shadow-lg transition-all duration-300 focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 ${
-                  status === 'submitting'
-                    ? 'bg-gray-400 cursor-not-allowed'
-                    : 'bg-amber-600 hover:bg-amber-700 hover:-translate-y-0.5'
-                }`}
+                className={`w-full py-4 text-white font-bold rounded-xl shadow-lg transition-all duration-300 focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 ${status === 'submitting'
+                  ? 'bg-gray-400 cursor-not-allowed'
+                  : 'bg-amber-600 hover:bg-amber-700 hover:-translate-y-0.5'
+                  }`}
               >
                 {status === 'submitting' ? 'Sending...' : 'Send Message'}
               </button>
@@ -118,7 +117,7 @@ const Contact = () => {
               </div>
               <div>
                 <h4 className="text-lg font-bold text-gray-900">Office Location</h4>
-                <p className="text-gray-600 mt-1">12 Tiger Reserve Road<br />Sawai Madhopur, Rajasthan 322001</p>
+                <p className="text-gray-600 mt-1">Sawai Madhopur, Rajasthan 322001</p>
               </div>
             </div>
 
@@ -128,7 +127,7 @@ const Contact = () => {
               </div>
               <div>
                 <h4 className="text-lg font-bold text-gray-900">Phone</h4>
-                <p className="text-gray-600 mt-1">+91 98765 43210</p>
+                <p className="text-gray-600 mt-1">+91 78919 87046</p>
               </div>
             </div>
 
@@ -138,7 +137,7 @@ const Contact = () => {
               </div>
               <div>
                 <h4 className="text-lg font-bold text-gray-900">Email</h4>
-                <p className="text-amber-600 font-medium mt-1">safari@ranthambhore.example.com</p>
+                <p className="text-amber-600 font-medium mt-1">info.roarranthambore@gmail.com</p>
               </div>
             </div>
 

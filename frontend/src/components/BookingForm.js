@@ -118,7 +118,7 @@ const BookingForm = () => {
             name="whatsapp"
             type="tel"
             value={formData.whatsapp}
-            placeholder="+91 9876543210"
+            placeholder="+91 78919 87046"
             onChange={handleChange}
             className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-500 focus:bg-white transition-all shadow-sm"
             required
