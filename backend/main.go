@@ -49,6 +49,7 @@ func main() {
 	router.StaticFile("/favicon.ico", "./build/favicon.ico")
 	router.StaticFile("/manifest.json", "./build/manifest.json")
 	router.StaticFile("/robots.txt", "./build/robots.txt")
+	router.StaticFile("/google8a404961536f3ec9.html", "./build/google8a404961536f3ec9.html")
 
 	// Catch-all: serve index.html for any unmatched route (React Router support)
 	router.NoRoute(func(c *gin.Context) {

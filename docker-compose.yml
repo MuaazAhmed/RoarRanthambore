@@ -6,8 +6,6 @@ services:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_DB: ${DB_NAME}
-    ports:
-      - "6665:5432"        # exposes to your local machine for pgAdmin / psql
     volumes:
       - postgres_data:/var/lib/postgresql/data
       # - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro   # auto-runs on first start
@@ -23,7 +21,7 @@ services:
     build: .
     restart: unless-stopped
     ports:
-      - "3000:8080"
+      - "127.0.0.1:3000:8080"
     depends_on:
       postgres:
         condition: service_healthy
@@ -35,6 +33,7 @@ services:
       - DB_NAME=${DB_NAME}
       - DATABASE_URL=postgres://${DB_USER}:${DB_PASSWORD}@postgres:5432/${DB_NAME}?sslmode=disable
       - FRONTEND_URL=${FRONTEND_URL}
+      - ADMIN_REG_CODE=${ADMIN_REG_CODE}
     env_file:
       - .env
 
