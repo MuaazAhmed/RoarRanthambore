@@ -1,0 +1,36 @@
+name: Deploy Roar Ranthambore
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to VPS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Configure SSH
+        shell: bash
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+
+          printf '%s\n' "${{ secrets.VPS_DEPLOY_KEY }}" > ~/.ssh/roarranthambore_actions
+          chmod 600 ~/.ssh/roarranthambore_actions
+
+          printf '%s\n' "${{ secrets.VPS_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+
+      - name: Deploy application
+        shell: bash
+        run: |
+          ssh \
+            -i ~/.ssh/roarranthambore_actions \
+            -o IdentitiesOnly=yes \
+            -o StrictHostKeyChecking=yes \
+            -o BatchMode=yes \
+            deploy@${{ secrets.VPS_HOST }} \
+            'sudo /usr/local/sbin/deploy-roarranthambore'
