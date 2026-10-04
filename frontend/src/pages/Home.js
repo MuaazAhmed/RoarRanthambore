@@ -6,14 +6,14 @@ const PRICING = {
   gypsy: {
     title: 'Gypsy Safari (6-Seater)',
     icon: '🚙',
-    indian: { shared: '₹1,900/person', full: '₹11,000', tatkal: '₹35,000' },
+    indian: { shared: '₹2,500/person', full: '₹11,000', tatkal: '₹35,000' },
     foreigner: { shared: '₹4,000/person', full: '₹24,000', tatkal: '₹55,000' },
     timing: 'Morning 6:00 AM – 9:30 AM  |  Evening 3:30 PM – 7:00 PM',
   },
   canter: {
     title: 'Canter Safari (20-Seater)',
     icon: '🚌',
-    indian: { shared: '₹1,300/person' },
+    indian: { shared: '₹1,600/person' },
     foreigner: { shared: '₹3,000/person' },
     timing: 'Morning 6:30 AM – 10:00 AM  |  Evening 2:30 PM – 6:00 PM',
   },
@@ -272,7 +272,7 @@ const Home = () => {
                   <div>
                     <p className="text-xs font-bold text-green-700 uppercase tracking-widest mb-2">🇮🇳 Indian</p>
                     <div className="grid grid-cols-3 gap-2 text-center">
-                      <div className="bg-green-50 rounded-xl p-3"><p className="text-xs text-gray-500">Shared/Seat</p><p className="font-bold text-green-800">₹1,900</p></div>
+                      <div className="bg-green-50 rounded-xl p-3"><p className="text-xs text-gray-500">Shared/Seat</p><p className="font-bold text-green-800">₹2,500</p></div>
                       <div className="bg-green-50 rounded-xl p-3"><p className="text-xs text-gray-500">Full Gypsy</p><p className="font-bold text-green-800">₹11,000</p></div>
                       <div className="bg-amber-50 rounded-xl p-3"><p className="text-xs text-gray-500">Tatkal</p><p className="font-bold text-amber-700">₹35,000</p></div>
                     </div>
@@ -305,7 +305,7 @@ const Home = () => {
                   <div>
                     <p className="text-xs font-bold text-green-700 uppercase tracking-widest mb-2">🇮🇳 Indian</p>
                     <div className="grid grid-cols-1 gap-2 text-center">
-                      <div className="bg-green-50 rounded-xl p-3"><p className="text-xs text-gray-500">Per Person</p><p className="font-bold text-green-800">₹1,300</p></div>
+                      <div className="bg-green-50 rounded-xl p-3"><p className="text-xs text-gray-500">Per Person</p><p className="font-bold text-green-800">₹1,600</p></div>
                     </div>
                   </div>
                   <div>

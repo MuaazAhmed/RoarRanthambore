@@ -74,7 +74,7 @@ const Booking = () => {
             <div className="bg-gray-50 rounded-3xl p-6 border border-gray-100">
               <h3 className="text-xl font-bold text-green-800 mb-4 flex items-center gap-2">🚙 Gypsy (6 Seater)</h3>
               <div className="space-y-3">
-                <div className="flex justify-between border-b pb-2"><span className="text-sm text-gray-600">Indian (Shared)</span><span className="font-bold">₹1,900</span></div>
+                <div className="flex justify-between border-b pb-2"><span className="text-sm text-gray-600">Indian (Shared)</span><span className="font-bold">₹2,500</span></div>
                 <div className="flex justify-between border-b pb-2"><span className="text-sm text-gray-600">Indian (Full)</span><span className="font-bold">₹11,000</span></div>
                 <div className="flex justify-between border-b pb-2"><span className="text-sm text-gray-600">Foreigner (Shared)</span><span className="font-bold">₹4,000</span></div>
                 <div className="flex justify-between border-b pb-2"><span className="text-sm text-gray-600">Foreigner (Full)</span><span className="font-bold">₹24,000</span></div>
@@ -83,7 +83,7 @@ const Booking = () => {
             <div className="bg-gray-50 rounded-3xl p-6 border border-gray-100">
               <h3 className="text-xl font-bold text-amber-800 mb-4 flex items-center gap-2">🚌 Canter (20 Seater)</h3>
               <div className="space-y-3">
-                <div className="flex justify-between border-b pb-2"><span className="text-sm text-gray-600">Indian (Per Seat)</span><span className="font-bold">₹1,300</span></div>
+                <div className="flex justify-between border-b pb-2"><span className="text-sm text-gray-600">Indian (Per Seat)</span><span className="font-bold">₹1,600</span></div>
                 <div className="flex justify-between border-b pb-2"><span className="text-sm text-gray-600">Foreigner (Per Seat)</span><span className="font-bold">₹3,000</span></div>
                 {/* <div className="flex justify-between border-b pb-2"><span className="text-sm text-gray-600">Indian (Tatkal)</span><span className="font-bold">₹2,500</span></div> */}
                 {/* <div className="flex justify-between border-b pb-2"><span className="text-sm text-gray-600">Foreigner (Tatkal)</span><span className="font-bold">₹8,000</span></div> */}
